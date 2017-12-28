@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>系统登陆页面</title>
+</head>
+<body>
+	<h3>用户登录</h3>
+	<form action="loginIn" action="/login" method='POST'>
+		<table>
+			<tr>
+				<td>用户名:</td><td><input type="text" name='username' value=''></td>
+			</tr>
+			<tr>
+				<td>密码:</td><td><input type='password' name='password'></td>
+			</tr>
+			<tr>
+				<td colspan='2'><input name='submit' type='submit' value='登陆'></td>
+			</tr>
+			<input name="_csrf" type="hidden" value="6829b1ae-0a14-4920-aac4-5abbd7eeb9ee" />
+			<input id="remember_me" name="remember-me" type="checkbox"/>
+			<label for="remember_me" class="inline">Remember me</label>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="Library/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+<body>
+	<h2>用户列表</h2>
+	<p>你好，这是用户列表</p>
+	<form>
+		<label>UserName</label><input type="text" name="userName">
+		<label>LoginName</label><input type="text" name="loginName">
+		<button type="button" onclick="test()" value="提交">提交试试</button>
+	</form>
+	<script>
+		$(function () {
+				var token = $("meta[name='_csrf']").attr("content");
+				var header = $("meta[name='_csrf_header']").attr("content");
+				$(document).ajaxSend(function(e, xhr, options) {
+					console.log(token);
+					xhr.setRequestHeader(header, token);
+				});
+			});
+		function test(){
+			alert('点击了');
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			console.log(token);
+		}
+		/* $(function(){
+			$.ajax({
+				type:"POST",
+				url:"users/addUserT",
+				data:{loginName:2,userName:4},
+				dataType: "json",
+				success: function (data) {
+		            console.log(data);
+			    },
+			    error: function (xhr, textStatus, errorThrow) {
+			        console.log(textStatus);
+			    }
+			});
+		}); */
+	</script>
+</body>
+</html>
